@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User updating</title>
+</head>
+<body>
+<h1 align="center">Please enter user updating data</h1>
+<div align="center">
+    <form th:method="PATCH" th:action="@{/admin}" th:object="${user}">
+        <table border="0" cellpadding="5">
+            <<tr>
+            <td>Id:</td>
+            <td><input type="text" id="id" name="id" th:value=${user.id} readonly>
+            </td>
+        </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" th:field="*{firstName}" id="firstName"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" th:field="*{surname}" id="surname"></td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td><input type="text" th:field="*{age}" id="age"></td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" th:field="*{username}" id="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" th:field="*{password}" id="password"></td>
+            </tr>
+            <tr>
+                <input th:type="checkbox" th:id="adminId" th:name="role" th:value="ROLE_ADMIN">
+                <label th:for="adminId">Admin</label>
+                <input th:type="checkbox" th:id="userId" th:name="role" th:value="ROLE_USER">
+                <label th:for="userId">User</label>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><input type="submit" value="Update"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
